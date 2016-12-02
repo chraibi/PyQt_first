@@ -1,18 +1,19 @@
 import sys
-from PyQt4 import QtCore, QtGui, uic
+from PyQt5 import uic
+from PyQt5.QtWidgets import QMainWindow, QApplication
 
-qtCreatorFile = "" # Enter file here.
+qtCreatorFile = "tax_calc.ui" # Enter file here.
 
 Ui_MainWindow, QtBaseClass = uic.loadUiType(qtCreatorFile)
 
-class MyApp(QtGui.QMainWindow, Ui_MainWindow):
+class MyApp(QMainWindow, Ui_MainWindow):
     def __init__(self):
-        QtGui.QMainWindow.__init__(self)
+        QMainWindow.__init__(self)
         Ui_MainWindow.__init__(self)
         self.setupUi(self)
 
 if __name__ == "__main__":
-    app = QtGui.QApplication(sys.argv)
+    app = QApplication(sys.argv)
     window = MyApp()
     window.show()
     sys.exit(app.exec_())
